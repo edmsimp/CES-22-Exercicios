@@ -12,8 +12,8 @@ class Supermarket():
 
     def print_decorator(func):
         """
-        Decorator that's prints before and after the supermarket list is being
-        written.
+        Decorator that's prints the supermarket list is being
+        written and prints it.
 
         :param func: the function that the operator modifies.
         :type func: function.
@@ -30,12 +30,11 @@ class Supermarket():
             """
 
             print("Supermarket list will be written!\n")
-            func(*args, **kwargs)
-            print("Supermarket list is ready!\n")
+            return "Supermarket list: {0}".format(func(*args, **kwargs))
         return inner
     
     @print_decorator
-    def make_list(self, list, dic): # Uses a list and a dictionary as parameters
+    def make_list(self, list, dic):
         """
         Function that write the supermarket list.
 
@@ -53,6 +52,10 @@ class Supermarket():
             dic[food] = list[i]
             i += 1
         self.to_buy = dic
+        spmk_list_str = ""
+        for i in dic:
+            spmk_list_str += i + ": " + str(dic[i]) + ", "
+        return " " + spmk_list_str
 
 ##### Usage examples #####
 
@@ -71,5 +74,5 @@ spmkt_dic = {
 
 # Call to make the supermarket list
 # Note that the operator will also be called
-spm.make_list(spmkt_list, spmkt_dic)
-print(spm.to_buy) # Updated supermarket list
+print(spm.make_list(spmkt_list, spmkt_dic)) # Updated supermarket list and
+                                            # prints it
