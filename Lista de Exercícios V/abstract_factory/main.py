@@ -1,9 +1,10 @@
+from factories.abstract_factory import AbstractFactory
 from factories.birthday_factory import BirthdayFactory
 from factories.wedding_factory import WeddingFactory
 from factories.party_factory import PartyFactory
 
 class Client:
-    def __init__(self, factory):
+    def __init__(self, factory: AbstractFactory):
         self.factory = factory()
 
 # Simulation
