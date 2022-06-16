@@ -3,6 +3,8 @@ from factories.birthday_factory import BirthdayFactory
 from factories.wedding_factory import WeddingFactory
 from factories.party_factory import PartyFactory
 
+# Abstract factory being passed, when used we will specifie which product
+# we want to build, depending on the client choice
 class Client:
     def __init__(self, factory: AbstractFactory):
         self.factory = factory()

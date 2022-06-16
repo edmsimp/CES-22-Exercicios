@@ -1,6 +1,9 @@
 from director import Director
 from builders.cake_builder import CakeBuilder
 
+
+# The builder is specified to build cakes, then the director will command
+# which cake has to be build 
 builder = CakeBuilder()
 
 director = Director()
