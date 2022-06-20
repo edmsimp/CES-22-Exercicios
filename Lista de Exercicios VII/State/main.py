@@ -29,7 +29,7 @@ class Draft (State):
     def __init__(self, document : Document()):
         super().__init__()
         self.document = document
-        self.name = "Rascunho"
+        self.name = "em Rascunho"
 
     def render(self):
         global is_admin
@@ -51,7 +51,7 @@ class Moderation (State):
     def __init__(self, document : Document):
         super().__init__()
         self.document = document
-        self.name = "Moderação"
+        self.name = "sob Revisão"
 
     def render(self):
         global is_admin
@@ -65,7 +65,7 @@ class Moderation (State):
         global is_admin
         super().publish()
         if is_admin == True:
-            accept = input("Aceitar documento? S/N")
+            accept = input("Aceitar documento? S/N ")
             if accept == "S":
                 self.document.changeState(Published(document))
             elif accept == "N":
@@ -130,4 +130,4 @@ while (True):
             document.render()
         elif option == "2":
             document.publish()
-            print("Documento em/já " + document.state.name)
+            print("Documento " + document.state.name)
